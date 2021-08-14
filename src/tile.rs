@@ -13,6 +13,8 @@ pub struct Tile {
     /// Visibility, if false will still process tile events, but will not render the tile.
     pub visible: bool,
     pub color: Color,
+    /// Animation, None if not animated
+    pub animated: Option<GPUAnimated>,
 }
 
 impl Default for Tile {
@@ -24,6 +26,7 @@ impl Default for Tile {
             flip_d: false, // anti diagonal for rotation
             visible: true,
             color: Color::WHITE,
+            animated: None,
         }
     }
 }

@@ -180,7 +180,7 @@ pub fn process_loaded_tile_maps(
                         let tiled_map_data = tiled_map.map.clone();
                         let layer_data = layer.clone();
                         let tileset_data = tileset.clone();
-
+                        println!("layer properties {:?}", layer_data.properties);
                         let layer_entity = LayerBuilder::<TileBundle>::new_batch(
                             &mut commands,
                             map_settings.clone(),
@@ -250,9 +250,9 @@ pub fn process_loaded_tile_maps(
                                 let tile = Tile {
                                     texture_index: tile_id as u16,
                                     flip_x: map_tile.flip_h,
-                                    flip_y: map_tile.flip_v, 
+                                    flip_y: map_tile.flip_v,
                                     flip_d: map_tile.flip_d,
-                                   
+
                                     animated,
                                     ..Default::default()
                                 };

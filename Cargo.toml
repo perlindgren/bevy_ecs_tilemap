@@ -7,13 +7,10 @@ homepage = "https://github.com/StarArawn/bevy_ecs_tilemap"
 repository = "https://github.com/StarArawn/bevy_ecs_tilemap"
 license-file = "LICENSE"
 edition = "2018"
-exclude = [
-    "assets/*",
-    "screenshots/*",
-]
+exclude = ["assets/*", "screenshots/*"]
 
 [features]
-default = []
+default = ["tiled_map"]
 ldtk = ["anyhow", "ldtk_rust", "serde_json"]
 tiled_map = ["anyhow", "tiled"]
 

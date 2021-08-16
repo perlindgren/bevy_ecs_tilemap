@@ -64,7 +64,7 @@ pub struct ChunkSettings {
     /// Cull the chunks in the map when they are off screen.
     pub cull: bool,
     /// The scaling of the corresponding layer
-    pub scale: Vec2,
+    // pub scale: Vec2,
     pub mesh_type: TilemapMeshType,
     pub(crate) mesher: ChunkMesher,
     pub(crate) mesh_handle: Handle<Mesh>,
@@ -106,7 +106,7 @@ impl Default for Chunk {
                 layer_id: 0,
                 spacing: Vec2::ZERO,
                 cull: true,
-                scale: Vec2::new(1., 1.),
+                // scale: Vec2::new(1., 1.),
                 mesh_type: TilemapMeshType::Square,
                 mesher: ChunkMesher,
             },
@@ -128,7 +128,7 @@ impl Chunk {
         mesh_type: TilemapMeshType,
         mesher: ChunkMesher,
         cull: bool,
-        scale: Vec2,
+        // scale: Vec2,
     ) -> Self {
         let tile_size_x = round_to_power_of_two(chunk_size.x as f32);
         let tile_size_y = round_to_power_of_two(chunk_size.y as f32);
@@ -145,7 +145,7 @@ impl Chunk {
             spacing: tile_spacing,
             mesher,
             cull,
-            scale,
+            // scale,
         };
         Self {
             map_entity,
@@ -253,10 +253,10 @@ pub(crate) fn update_chunk_visibility(
             }
 
             let bounds_size = Vec2::new(
-                // chunk.settings.size.x as f32 * chunk.settings.tile_size.x,
-                // chunk.settings.size.y as f32 * chunk.settings.tile_size.y,
-                chunk.settings.size.x as f32 * chunk.settings.tile_size.x * 4.0,
-                chunk.settings.size.y as f32 * chunk.settings.tile_size.y * 4.0,
+                chunk.settings.size.x as f32 * chunk.settings.tile_size.x,
+                chunk.settings.size.y as f32 * chunk.settings.tile_size.y,
+                // chunk.settings.size.x as f32 * chunk.settings.tile_size.x * 4.0,
+                // chunk.settings.size.y as f32 * chunk.settings.tile_size.y * 4.0,
             );
 
             let bounds = Vec4::new(

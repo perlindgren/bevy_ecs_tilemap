@@ -45,7 +45,7 @@ pub struct LayerSettings {
     pub parallax_x: f32,
     pub parallax_y: f32,
     /// Scaling (1.0, 1.0) nominal,
-    pub scale: Vec2,
+    // pub scale: Vec2,
     pub(crate) mesher: ChunkMesher,
 }
 
@@ -58,12 +58,12 @@ impl LayerSettings {
             texture_size,
             layer_id: 0,
             map_id: 0,
-            cull: true,
+            cull: false,
             mesh_type: TilemapMeshType::Square,
             tile_spacing: Vec2::ZERO,
             parallax_x: 0.,
             parallax_y: 0.,
-            scale: Vec2::new(1.0, 1.0),
+            // scale: Vec2::new(1.0, 1.0),
             mesher: ChunkMesher,
         }
     }

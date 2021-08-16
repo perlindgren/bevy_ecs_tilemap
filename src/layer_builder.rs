@@ -119,7 +119,7 @@ where
                     settings.mesh_type,
                     settings.mesher,
                     settings.cull,
-                    settings.scale,
+                    // settings.scale,
                 );
 
                 let index = morton_index(chunk_pos);
@@ -375,7 +375,7 @@ where
                     self.settings.mesh_type,
                     self.settings.mesher,
                     self.settings.cull,
-                    self.settings.scale,
+                    // self.settings.scale,
                 );
 
                 chunk.build_tiles(chunk_entity, |tile_pos, chunk_entity| {

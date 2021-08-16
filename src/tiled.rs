@@ -138,6 +138,7 @@ pub fn process_loaded_tile_maps(
                 }
 
                 for tileset in tiled_map.map.tilesets.iter() {
+                    log::info!("tileset {:?}", tileset.name);
                     // Once materials have been created/added we need to then create the layers.
                     for layer in tiled_map.map.layers.iter() {
                         let tile_width = tileset.tile_width as f32;
@@ -180,10 +181,19 @@ pub fn process_loaded_tile_maps(
                         let tiled_map_data = tiled_map.map.clone();
                         let layer_data = layer.clone();
                         let tileset_data = tileset.clone();
-                        println!("layer properties {:?}", layer_data.properties);
+
+                        log::info!(
+                            "layer {:?} parallax {:?}",
+                            layer_data.name,
+                            (layer_data.parallax_x, layer_data.parallax_y)
+                        );
+
+                        let mut layer_settings = map_settings.clone();
+                        layer_settings.parallax_x = layer_data.parallax_x;
+                        layer_settings.parallax_y = layer_data.parallax_y;
                         let layer_entity = LayerBuilder::<TileBundle>::new_batch(
                             &mut commands,
-                            map_settings.clone(),
+                            layer_settings,
                             &mut meshes,
                             material,
                             0u16,

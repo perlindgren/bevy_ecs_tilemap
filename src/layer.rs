@@ -41,6 +41,11 @@ pub struct LayerSettings {
     /// Spacing around each tile in the atlas
     /// Note: This is ignored in array mode.
     pub tile_spacing: Vec2,
+    /// Parallax info 1.0 is nominal, > 1.0 faster and < 1.0 slower
+    pub parallax_x: f32,
+    pub parallax_y: f32,
+    /// Scaling (1.0, 1.0) nominal,
+    pub scale: Vec2,
     pub(crate) mesher: ChunkMesher,
 }
 
@@ -56,6 +61,9 @@ impl LayerSettings {
             cull: true,
             mesh_type: TilemapMeshType::Square,
             tile_spacing: Vec2::ZERO,
+            parallax_x: 0.,
+            parallax_y: 0.,
+            scale: Vec2::new(1.0, 1.0),
             mesher: ChunkMesher,
         }
     }
